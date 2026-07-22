@@ -1,0 +1,41 @@
+#gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr));
+	gap: var(--space-4);
+}
+
+.card {
+	overflow: hidden;
+	border-radius: var(--radius-lg);
+	border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+	background: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+	content-visibility: auto;
+	transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.card:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+.card img {
+	width: 100%;
+	aspect-ratio: 1;
+}
+
+.card-body {
+	display: grid;
+	gap: var(--space-1);
+	padding: var(--space-4);
+}
+
+.card-body h2 {
+	font-size: var(--text-base);
+	line-height: 1.25;
+}
+
+.card-body p {
+	color: var(--color-text-muted);
+	font-size: var(--text-sm);
+}

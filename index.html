@@ -1,1 +1,47 @@
-Hello!
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="A collection clothing of designs." />
+		<title>Metasophiea Designs</title>
+		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+		<link href="css/globals.css" rel="stylesheet">
+		<link href="css/html-styles.css" rel="stylesheet">
+		<link href="css/index.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<section id="gallery"/>
+	</body>
+
+	<script>
+		function populateGrid(data) {
+			data.forEach((design) => {
+				const title = document.createElement('h2');
+					title.innerHTML = design.name;
+				const cardText = document.createElement('div');
+					cardText.appendChild(title);
+					cardText.className = "card-body";
+				const cardImage = document.createElement('img');
+					cardImage.src = ['designs', design.name, design.defaultImage].join('/');
+					cardImage.loading = "lazy";
+					cardImage.decoding = "async";
+				const card = document.createElement('article');
+					card.appendChild(cardImage);
+					card.appendChild(cardText);
+					card.className = "card";
+					card.onclick = () => {
+						window.open('viewer.html?design=' + design.name, '_self');
+					};
+
+				document.getElementById("gallery").appendChild(card);
+			});
+		}
+
+		fetch("data.json").then((response) => {
+			response.text().then((text) => {
+				populateGrid(JSON.parse(text));
+			});
+		});
+	</script>
+</html>

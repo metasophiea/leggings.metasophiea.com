@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="A collection of images of one design." />
+		<title>Metasophiea Designs</title>
+		<link href="css/viewer.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<section id="gallery"/>
+	</body>
+
+	<script>
+		let params = new URLSearchParams(document.location.search);
+		let designName = params.get("design");
+		document.title = designName;
+
+		function populateGrid(data) {
+			data.images.forEach((imageName) => {
+				const image = document.createElement('img');
+					image.src = ['designs', designName, imageName].join('/');
+					image.loading = "lazy";
+					image.decoding = "async";
+					
+				document.getElementById("gallery").appendChild(image);
+			});
+		}
+
+		fetch("data.json").then((response) => {
+			response.text().then((text) => {
+				populateGrid(JSON.parse(text).find((design) => design.name === designName));
+			});
+		});
+	</script>
+</html>

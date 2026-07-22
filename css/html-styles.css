@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: var(--color-text);
+	font-family: var(--font-body);
+	margin: 0 auto;
+	padding: var(--space-6) 0 var(--space-16);
+	width: min(calc(100% - 2rem), var(--content-wide));
+}
