@@ -1,6 +1,19 @@
 [
 	{
 		"defaultImage": "Side Person, White stitching.jpg",
+		"name": "Chevron - Black & White",
+		"images": [
+			"Back Person, White stitching.jpg",
+			"Front Side, White stitching.jpg",
+			"Back Side, White stitching.jpg",
+			"Front, White stitching.jpg",
+			"Back, White stitching.jpg",
+			"Side Person, White stitching.jpg",
+			"Front Person, White stitching.jpg"
+		]
+	},
+	{
+		"defaultImage": "Side Person, White stitching.jpg",
 		"name": "Dire Straits Love Over Gold",
 		"images": [
 			"Back Person, White stitching.jpg",
